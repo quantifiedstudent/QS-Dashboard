@@ -1,7 +1,8 @@
 import { NextPage } from "next";
-import Grid from "../components/GridLayout";
 import { useState } from "react";
-import Block from "../components/Block";
+
+import GridLayout from "../components/dashboardLayout/GridLayout";
+import Block from "../components/dashboardLayout/Block";
 import AddBlockModal from "../components/AddBlockModal";
 
 const Dashboard: NextPage = () => {
@@ -24,7 +25,7 @@ const Dashboard: NextPage = () => {
           <h1>Dashboard</h1>
           <h1 onClick={() => showModal(true)}>+</h1>
         </span>
-        <Grid layout={blocks} />
+        <GridLayout layout={blocks} />
       </div>
     </>
   );
