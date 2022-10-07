@@ -1,11 +1,14 @@
-const AddBlockModal = ({ handleClose, handleClick, show, children }: any) => {
+import { QsGraph } from "../interfaces/QSGraphs";
+
+const AddBlockModal = ({ handleClose, childToParent, show }: any) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <p onClick={handleClick}>Add block</p>
-        {children}
+        <button onClick={() => childToParent(QsGraph.GRADE)}>
+          Grade graph
+        </button>
         <button type="button" onClick={handleClose}>
           Close
         </button>
