@@ -1,15 +1,23 @@
-import { QsGraph } from "../interfaces/QSGraphs";
+import { QsGraph } from "../interfaces/graph/QSGraphs";
 
-const AddBlockModal = ({ handleClose, childToParent, show }: any) => {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
+interface AddGraphToDashbaordModalProps {
+  handleClose: any;
+  graphToAdd: Function;
+  show: boolean;
+}
+
+const AddGraphToDashbaordModal = (props: AddGraphToDashbaordModalProps) => {
+  const showHideClassName = props.show
+    ? "modal display-block"
+    : "modal display-none";
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button onClick={() => childToParent(QsGraph.GRADE)}>
+        <button onClick={() => props.graphToAdd(QsGraph.GRADE)}>
           Grade graph
         </button>
-        <button type="button" onClick={handleClose}>
+        <button type="button" onClick={props.handleClose}>
           Close
         </button>
       </section>
@@ -17,4 +25,4 @@ const AddBlockModal = ({ handleClose, childToParent, show }: any) => {
   );
 };
 
-export default AddBlockModal;
+export default AddGraphToDashbaordModal;

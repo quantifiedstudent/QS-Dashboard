@@ -1,13 +1,15 @@
 import { useEffect, useRef } from "react";
-import { XAxis, YAxis } from "../../interfaces/GraphData";
-import { GraphProps, QsGraph } from "../../interfaces/QSGraphs";
+import { XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
+import { QsGraph } from "../../interfaces/graph/QSGraphs";
 import QsChart from "../../services/graph/computeGraph";
 
-const ChartComponent = (props: {
+interface ChartComponentProps {
   labels: Array<XAxis>;
   data: Array<YAxis>;
   chart: QsGraph;
-}) => {
+}
+
+const ChartComponent = (props: ChartComponentProps) => {
   const canvasEl = useRef(null);
 
   useEffect(() => {

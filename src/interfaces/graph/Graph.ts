@@ -1,11 +1,11 @@
-import { XAxis, YAxis } from "./GraphData";
+import { XAxis, YAxis } from "./GraphAxis";
 
 export enum GraphType {
-  bar = "bar",
-  bubble = "bubble",
-  doughnut = "doughnut",
-  pie = "pie",
-  line = "line",
+  BAR = "bar",
+  BUBBLE = "bubble",
+  DOUGHNUT = "doughnut",
+  PIE = "pie",
+  LINE = "line",
 }
 
 interface BaseDataSetShape {
@@ -25,7 +25,7 @@ export interface DataSetShape extends BaseDataSetShape {
 
 export class DataSet implements DataSetShape {
   constructor(options: DataSetShape) {
-    this.type = options.type || GraphType.line;
+    this.type = options.type || GraphType.LINE;
     this.label = options.label;
     this.data = options.data;
     this.fill = options.fill || false;

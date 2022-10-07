@@ -1,5 +1,4 @@
-import { AxiosResponse } from "axios";
-import { DataPoint, XAxis, YAxis } from "../../interfaces/GraphData";
+import { DataPoint, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
 import QSApi from "./web-api";
 
 export class APIRequest<T extends DataPoint> {

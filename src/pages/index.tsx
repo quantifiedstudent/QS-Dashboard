@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import GridLayout from "../components/dashboardLayout/GridLayout";
 import AddBlockModal from "../components/AddBlockModal";
-import { QsGraph } from "../interfaces/QSGraphs";
+import { QsGraph } from "../interfaces/graph/QSGraphs";
 import ChartContainer from "../components/dashboardLayout/ChartContainer";
 
 const Dashboard: NextPage = () => {
@@ -19,7 +19,7 @@ const Dashboard: NextPage = () => {
     <>
       <AddBlockModal
         handleClose={() => showModal(false)}
-        childToParent={handleCallback}
+        graphToAdd={handleCallback}
         show={modalOpen}
       />
       <div>

@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { GraphProps, QsGraph } from "../../interfaces/QSGraphs";
+import { QsGraph } from "../../interfaces/graph/QSGraphs";
 import { APIRequest } from "../../services/api/extractData";
 import ChartComponent from "./ChartComponent";
 
-const ChartContainer = (props: GraphProps) => {
+interface ChartContainer {
+  QsGraph: QsGraph;
+}
+
+const ChartContainer = (props: ChartContainer) => {
   const [state, setState] = useState({ labels: [], data: [] });
 
   useEffect(() => {
