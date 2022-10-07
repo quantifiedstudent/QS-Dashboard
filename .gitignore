@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/QS-Mock-Backend
 
 # next.js
 /.next/
