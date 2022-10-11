@@ -1,31 +1,28 @@
 import { useEffect, useRef } from "react";
-import { XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
+import { GraphObject, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
 import { QsGraph } from "../../interfaces/graph/QSGraphs";
-import QsChart from "../../services/graph/computeGraph";
+import QsChart from "../../services/graph/ComputeGraph";
 
 interface ChartComponentProps {
-  labels: Array<XAxis>;
-  data: Array<YAxis>;
-  chart: QsGraph;
+  charts: Array<GraphObject>;
 }
 
 const ChartComponent = (props: ChartComponentProps) => {
-  const canvasEl = useRef(null);
+  const CANVAS_EL = useRef(null);
 
   useEffect(() => {
-    let ctx = canvasEl.current.getContext("2d");
+    let ctx = CANVAS_EL.current.getContext("2d");
 
-    const chart = new QsChart(
-      props.chart,
-      props.labels,
-      props.data,
+    const CHART = new QsChart(
+      props.charts,
+      props.charts[0].labels,
       ctx
     ).generateChart();
 
-    return () => chart.destroy();
+    return () => CHART.destroy();
   }, [props]);
 
-  return <canvas ref={canvasEl}></canvas>;
+  return <canvas ref={CANVAS_EL}></canvas>;
 };
 
 export default ChartComponent;
