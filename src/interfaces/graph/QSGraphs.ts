@@ -1,4 +1,4 @@
-import { GraphType } from "./Graph";
+import { GraphType } from "@Interfaces/graph/Graph";
 
 /**
  * <summary>

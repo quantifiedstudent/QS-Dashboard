@@ -1,5 +1,5 @@
-import { DataPoint, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
-import QS_API from "./WebApi";
+import { DataPoint, XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
+import QS_API from "@Services/api/WebApi";
 
 export class ApiRequest<T extends DataPoint> {
   #endpoint: string;

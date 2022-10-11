@@ -1,7 +1,8 @@
 import Chart, { ChartConfiguration } from "chart.js/auto";
-import { DataSet } from "../../interfaces/graph/Graph";
-import { GraphObject, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
-import options from "./DefaultGraphConfig";
+
+import { DataSet } from "@Interfaces/graph/Graph";
+import { GraphObject, XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
+import options from "@Services/graph/DefaultGraphConfig";
 
 class QsChart {
   private _ctx: HTMLCanvasElement;

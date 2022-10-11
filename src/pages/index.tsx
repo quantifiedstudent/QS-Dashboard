@@ -1,10 +1,11 @@
 import { NextPage } from "next";
 import { useState } from "react";
 
-import GridLayout from "../components/dashboardLayout/GridLayout";
-import AddBlockModal from "../components/AddBlockModal";
-import { QsGraph } from "../interfaces/graph/QSGraphs";
-import ChartContainer from "../components/dashboardLayout/ChartContainer";
+import AddBlockModal from "@Components/AddBlockModal";
+import ChartContainer from "@Components/dashboardLayout/ChartContainer";
+import GridLayout from "@Components/dashboardLayout/GridLayout";
+
+import { QsGraph } from "@Interfaces/graph/QSGraphs";
 
 const Dashboard: NextPage = () => {
   const [BLOCKS, ADD_NEW_BLOCK] = useState(Array<object>);

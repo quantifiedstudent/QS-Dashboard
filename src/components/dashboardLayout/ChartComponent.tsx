@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { GraphObject } from "../../interfaces/graph/GraphAxis";
-import QsChart from "../../services/graph/computeGraph";
+
+import { GraphObject } from "@Interfaces/graph/GraphAxis";
+import QsChart from "@Services/graph/ComputeGraph";
 
 interface ChartComponentProps {
   charts: Array<GraphObject>;

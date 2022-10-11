@@ -1,4 +1,4 @@
-import { QsGraph } from "./QSGraphs";
+import { QsGraph } from "@Interfaces/graph/QSGraphs";
 
 export type XAxis = string | number;
 export type YAxis = number;

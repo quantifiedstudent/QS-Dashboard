@@ -1,6 +1,6 @@
-import { QsGraph } from "../interfaces/graph/QSGraphs";
-import COMBINE_CLASS from "../services/helpers/ClassCombiner";
-import styles from "../styles/components/AddGraphModal.module.scss";
+import { QsGraph } from "@Interfaces/graph/QSGraphs";
+import COMBINE_CLASS from "@Services/helpers/ClassCombiner";
+import styles from "@Styles/components/AddGraphModal.module.scss";
 
 interface AddGraphToDashbaordModalProps {
   handleClose: any;

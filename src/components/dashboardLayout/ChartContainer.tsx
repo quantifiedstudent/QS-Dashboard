@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { QsGraph } from "../../interfaces/graph/QSGraphs";
-import { ApiRequest } from "../../services/api/extractData";
-import ChartComponent from "./ChartComponent";
-import { GraphObject } from "../../interfaces/graph/GraphAxis";
+
+import ChartComponent from "@Components/dashboardLayout/ChartComponent";
+import { QsGraph } from "@Interfaces/graph/QSGraphs";
+import { GraphObject } from "@Interfaces/graph/GraphAxis";
+import { ApiRequest } from "@Services/api/ExtractData";
 
 interface ChartContainer {
   QsGraph: Array<QsGraph>;

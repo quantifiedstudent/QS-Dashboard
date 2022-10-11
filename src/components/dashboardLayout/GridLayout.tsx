@@ -2,7 +2,8 @@ import React from "react";
 import { WidthProvider, Responsive } from "react-grid-layout";
 import "/node_modules/react-grid-layout/css/styles.css";
 import "/node_modules/react-resizable/css/styles.css";
-import styles from "../../styles/components/GraphBlock.module.scss";
+
+import styles from "@Styles/components/GraphBlock.module.scss";
 
 interface GridLayoutProps {
   layout: Array<object>;
