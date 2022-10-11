@@ -31,7 +31,6 @@ class QsChart {
     let dataSets = new Array<DataSet>();
 
     this._charts.forEach((chart) => {
-      console.log(chart);
       dataSets.push(
         new DataSet({
           label: chart.graph.label,

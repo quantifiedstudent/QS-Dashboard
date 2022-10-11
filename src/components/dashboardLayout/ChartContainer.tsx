@@ -23,7 +23,7 @@ const ChartContainer = (props: ChartContainer) => {
           props.QsGraph.forEach(async (graph, i) => {
             const [LABELS, DATA] = await new ApiRequest(
               graph.endpoint
-            ).GetData();
+            ).getData();
 
             returnValue.push({
               graph: graph,
@@ -44,7 +44,7 @@ const ChartContainer = (props: ChartContainer) => {
     };
 
     fetchGraphData();
-  }, []);
+  }, [props.QsGraph]);
 
   return <ChartComponent charts={STATE}></ChartComponent>;
 };

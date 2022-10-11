@@ -19,7 +19,7 @@ export class ApiRequest<T extends DataPoint> {
     return [labels, datapoints];
   }
 
-  async GetData() {
+  async getData() {
     return await QS_API.get(this.#endpoint).then((res) =>
       this.extract(res.data)
     );

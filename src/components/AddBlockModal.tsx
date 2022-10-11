@@ -20,9 +20,7 @@ const AddGraphToDashbaordModal = (props: AddGraphToDashbaordModalProps) => {
           Grade graph
         </button>
         <button
-          onClick={() =>
-            props.graphToAdd([QsGraph.GRADE, QsGraph.WEATHER, QsGraph.GRADE])
-          }
+          onClick={() => props.graphToAdd([QsGraph.GRADE, QsGraph.WEATHER])}
         >
           Combined Graph
         </button>
