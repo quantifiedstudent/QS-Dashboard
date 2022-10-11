@@ -23,7 +23,7 @@ const GridLayout = (props: GridLayoutProps) => {
         return (
           <div
             key={index}
-            className={styles.graphBlock}
+            className={styles.graph_block}
             data-grid={{ x: 0, y: 0, w: 1, h: 2, minW: 1, minH: 2 }}
           >
             {item.component}

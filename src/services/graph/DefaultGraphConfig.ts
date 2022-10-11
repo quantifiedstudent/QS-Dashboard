@@ -1,4 +1,4 @@
-const options = {
+const OPTIONS = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
@@ -14,4 +14,4 @@ const options = {
   },
 };
 
-export default options;
+export default OPTIONS;

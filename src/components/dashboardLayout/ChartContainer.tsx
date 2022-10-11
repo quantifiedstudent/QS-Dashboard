@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
 import { QsGraph } from "../../interfaces/graph/QSGraphs";
-import { ApiRequest } from "../../services/api/ExtractData";
+import { ApiRequest } from "../../services/api/extractData";
 import ChartComponent from "./ChartComponent";
 import { GraphObject } from "../../interfaces/graph/GraphAxis";
 

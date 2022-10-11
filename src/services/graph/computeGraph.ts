@@ -1,45 +1,61 @@
 import Chart, { ChartConfiguration } from "chart.js/auto";
 import { DataSet } from "../../interfaces/graph/Graph";
-import { XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
+import { GraphObject, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
 import { QsGraph } from "../../interfaces/graph/QSGraphs";
 import options from "./DefaultGraphConfig";
 
 class QsChart {
   private _ctx: HTMLCanvasElement;
-  private _chart: QsGraph;
+  private _charts: Array<GraphObject>;
   private _labels: Array<XAxis>;
-  private _data: Array<YAxis>;
+  private _colors: Array<string>;
 
   constructor(
-    chart: QsGraph,
+    charts: Array<GraphObject>,
     labels: Array<XAxis>,
-    data: Array<YAxis>,
     ctx: HTMLCanvasElement
   ) {
     this._ctx = ctx;
-    this._chart = chart;
+    this._charts = charts;
     this._labels = labels;
-    this._data = data;
+
+    this._colors = [
+      "rgb(0, 0, 255)",
+      "rgb(0, 255, 0)",
+      "rgb(255, 153, 51)",
+      "rgb(204, 51, 255)",
+    ];
   }
 
   generateChart() {
-    let dataSet = [
-      new DataSet({
-        label: this._chart.label,
-        data: this._data,
-        type: this._chart.type,
-      }),
-    ];
+    let dataSets = new Array<DataSet>();
 
-    const config = {
+    this._charts.forEach((chart) => {
+      console.log(chart);
+      dataSets.push(
+        new DataSet({
+          label: chart.graph.label,
+          data: chart.data,
+          type: chart.graph.type,
+        })
+      );
+    });
+
+    if (dataSets.length > 1) {
+      dataSets.forEach((value, i) => {
+        value.borderColor = this._colors[i];
+      });
+    }
+
+    const CONFIG = {
       data: {
         labels: this._labels,
-        datasets: dataSet,
+        datasets: dataSets,
       },
       options: options,
     } as unknown as ChartConfiguration;
 
-    return new Chart(this._ctx, config);
+    return new Chart(this._ctx, CONFIG);
   }
 }
 

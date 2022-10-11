@@ -1,8 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
-const QSApi: AxiosInstance = axios.create({
+const QS_API: AxiosInstance = axios.create({
   baseURL: "http://localhost:3001/",
   timeout: 1000,
 });
 
-export default QSApi;
+export default QS_API;

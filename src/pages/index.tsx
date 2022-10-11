@@ -7,10 +7,10 @@ import { QsGraph } from "../interfaces/graph/QSGraphs";
 import ChartContainer from "../components/dashboardLayout/ChartContainer";
 
 const Dashboard: NextPage = () => {
-  const [blocks, addNewBlock] = useState(Array<object>);
-  const [modalOpen, showModal] = useState(false);
-  const handleCallback = (data: QsGraph) => {
-    addNewBlock((blocks) => [
+  const [BLOCKS, ADD_NEW_BLOCK] = useState(Array<object>);
+  const [MODAL_OPEN, SHOW_MODAL] = useState(false);
+  const handleCallback = (data: Array<QsGraph>) => {
+    ADD_NEW_BLOCK((blocks) => [
       ...blocks,
       { component: <ChartContainer QsGraph={data} /> },
     ]);
@@ -18,16 +18,16 @@ const Dashboard: NextPage = () => {
   return (
     <>
       <AddBlockModal
-        handleClose={() => showModal(false)}
+        handleClose={() => SHOW_MODAL(false)}
         graphToAdd={handleCallback}
-        show={modalOpen}
+        show={MODAL_OPEN}
       />
       <div>
         <span className="dashboard-header">
           <h1>Dashboard</h1>
-          <h1 onClick={() => showModal(true)}>+</h1>
+          <h1 onClick={() => SHOW_MODAL(true)}>+</h1>
         </span>
-        <GridLayout layout={blocks} />
+        <GridLayout layout={BLOCKS} />
       </div>
     </>
   );

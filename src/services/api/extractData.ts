@@ -1,7 +1,7 @@
 import { DataPoint, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
-import QSApi from "./web-api";
+import QS_API from "./WebApi";
 
-export class APIRequest<T extends DataPoint> {
+export class ApiRequest<T extends DataPoint> {
   #endpoint: string;
 
   constructor(endpoint: string) {
@@ -20,7 +20,7 @@ export class APIRequest<T extends DataPoint> {
   }
 
   async GetData() {
-    return await QSApi.get(this.#endpoint).then((res) =>
+    return await QS_API.get(this.#endpoint).then((res) =>
       this.extract(res.data)
     );
   }
