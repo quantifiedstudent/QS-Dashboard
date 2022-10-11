@@ -1,7 +1,6 @@
 import Chart, { ChartConfiguration } from "chart.js/auto";
 import { DataSet } from "../../interfaces/graph/Graph";
 import { GraphObject, XAxis, YAxis } from "../../interfaces/graph/GraphAxis";
-import { QsGraph } from "../../interfaces/graph/QSGraphs";
 import options from "./DefaultGraphConfig";
 
 class QsChart {
