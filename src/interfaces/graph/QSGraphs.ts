@@ -1,4 +1,4 @@
-import { GraphType } from "./Graph";
+import { GraphType } from "@Interfaces/graph/Graph";
 
 /**
  * <summary>
@@ -10,7 +10,9 @@ import { GraphType } from "./Graph";
  * @param: endpoint -> the api endpoint the data for the graph comes from
  */
 export class QsGraph {
-  static readonly GRADE = new QsGraph("grade", GraphType.LINE, "allGrades");
+  static readonly DEFAULT = new QsGraph("loading", GraphType.LINE, "");
+  static readonly GRADE = new QsGraph("Grade", GraphType.LINE, "allGrades");
+  static readonly WEATHER = new QsGraph("Weather", GraphType.BAR, "weather");
 
   private constructor(
     public readonly label: string,

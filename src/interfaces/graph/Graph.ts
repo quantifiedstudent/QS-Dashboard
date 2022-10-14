@@ -1,4 +1,4 @@
-import { XAxis, YAxis } from "./GraphAxis";
+import { XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
 
 export enum GraphType {
   BAR = "bar",

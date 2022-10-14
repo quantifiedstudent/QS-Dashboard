@@ -2,7 +2,8 @@ import React from "react";
 import { WidthProvider, Responsive } from "react-grid-layout";
 import "/node_modules/react-grid-layout/css/styles.css";
 import "/node_modules/react-resizable/css/styles.css";
-import styles from "../../styles/components/GraphBlock.module.scss";
+
+import styles from "@Styles/components/GraphBlock.module.scss";
 
 interface GridLayoutProps {
   layout: Array<object>;
@@ -23,7 +24,7 @@ const GridLayout = (props: GridLayoutProps) => {
         return (
           <div
             key={index}
-            className={styles.graphBlock}
+            className={styles.graph_block}
             data-grid={{ x: 0, y: 0, w: 1, h: 2, minW: 1, minH: 2 }}
           >
             {item.component}
