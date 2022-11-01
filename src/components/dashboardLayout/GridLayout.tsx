@@ -15,20 +15,20 @@ const GridLayout = (props: GridLayoutProps) => {
   return (
     <ResponsiveReactGridLayout
       className="layout"
-      cols={{ lg: 6, md: 6, sm: 4, xs: 2, xxs: 1 }}
+      cols={{ lg: 5, md: 5, sm: 4, xs: 2, xxs: 1 }}
       rowHeight={120}
       width={1000}
       isBounded
     >
       {props.layout.map((item: any, index: number) => {
         return (
-          <div
+          <span
             key={index}
             className={styles.graph_block}
             data-grid={{ x: 0, y: 0, w: 1, h: 2, minW: 1, minH: 2 }}
           >
             {item.component}
-          </div>
+          </span>
         );
       })}
     </ResponsiveReactGridLayout>

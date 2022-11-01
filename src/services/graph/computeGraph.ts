@@ -1,6 +1,6 @@
 import Chart, { ChartConfiguration } from "chart.js/auto";
 
-import { DataSet } from "@Interfaces/graph/Graph";
+import { DataSet, GraphType } from "@Interfaces/graph/Graph";
 import { GraphObject, XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
 import options from "@Services/graph/DefaultGraphConfig";
 
@@ -20,10 +20,10 @@ class QsChart {
     this._labels = labels;
 
     this._colors = [
-      "rgb(0, 0, 255)",
-      "rgb(0, 255, 0)",
-      "rgb(255, 153, 51)",
-      "rgb(204, 51, 255)",
+      "rgb(255, 179, 179)",
+      "rgb(255, 219, 164)",
+      "rgb(255, 233, 174)",
+      "rgb(193, 239, 255)",
     ];
   }
 
@@ -43,15 +43,25 @@ class QsChart {
     if (dataSets.length > 1) {
       dataSets.forEach((value, i) => {
         value.borderColor = this._colors[i];
+        value.backgroundColor = this._colors[i];
       });
     }
 
-    const CONFIG = {
+    console.log(this._labels);
+
+    const CONFIG: ChartConfiguration = {
       data: {
         labels: this._labels,
         datasets: dataSets,
       },
-      options: options,
+      options: {
+        ...options,
+        plugins: {
+          legend: {
+            display: dataSets.length > 1,
+          },
+        },
+      },
     } as unknown as ChartConfiguration;
 
     return new Chart(this._ctx, CONFIG);

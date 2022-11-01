@@ -1,9 +1,12 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import { useState } from "react";
 
 import AddBlockModal from "@Components/AddBlockModal";
 import ChartContainer from "@Components/dashboardLayout/ChartContainer";
 import GridLayout from "@Components/dashboardLayout/GridLayout";
+
+import qsLogo from "@Assets/qs-logo.jpg";
 
 import { QsGraph } from "@Interfaces/graph/QSGraphs";
 
@@ -25,6 +28,9 @@ const Dashboard: NextPage = () => {
       />
       <div>
         <span className="dashboard-header">
+          <div>
+            <Image src={qsLogo} alt="test" />
+          </div>
           <h1>Dashboard</h1>
           <h1 onClick={() => SHOW_MODAL(true)}>+</h1>
         </span>

@@ -21,6 +21,7 @@ export interface DataSetShape extends BaseDataSetShape {
   borderWidth?: number;
   lineTension?: number;
   pointRadius?: number;
+  backgroundColor?: string;
 }
 
 export class DataSet implements DataSetShape {
@@ -32,6 +33,7 @@ export class DataSet implements DataSetShape {
     this.borderColor = options.borderColor || "rgb(3, 116, 181)";
     this.pointBackgroundColor =
       options.pointBackgroundColor || "rgb(255, 255, 255)";
+    this.backgroundColor = options.backgroundColor;
     this.borderWidth = options.borderWidth || 3;
     this.lineTension = options.lineTension || 0.3;
     this.pointRadius = options.pointRadius || 4;
@@ -45,6 +47,7 @@ export class DataSet implements DataSetShape {
   borderWidth: number;
   lineTension: number;
   pointRadius: number;
+  backgroundColor: string;
 }
 
 export interface GraphShape {

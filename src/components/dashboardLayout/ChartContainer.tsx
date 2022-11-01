@@ -5,6 +5,8 @@ import { QsGraph } from "@Interfaces/graph/QSGraphs";
 import { GraphObject } from "@Interfaces/graph/GraphAxis";
 import { ApiRequest } from "@Services/api/ExtractData";
 
+import styles from "@Styles/components/ChartComponent.module.scss";
+
 interface ChartContainer {
   QsGraph: Array<QsGraph>;
 }
@@ -46,7 +48,22 @@ const ChartContainer = (props: ChartContainer) => {
     fetchGraphData();
   }, [props.QsGraph]);
 
-  return <ChartComponent charts={STATE}></ChartComponent>;
+  return (
+    <>
+      <div className={styles.ChartHeader}>
+        <span className={styles.ChartTitle}>
+          {props.QsGraph.map((graph, i) => {
+            if (i + 1 !== props.QsGraph.length) return `${graph.label} vs `;
+
+            return graph.label;
+          })}
+        </span>
+      </div>
+      <div className={styles.ChartContainer}>
+        <ChartComponent charts={STATE}></ChartComponent>
+      </div>
+    </>
+  );
 };
 
 export default ChartContainer;
