@@ -2,22 +2,19 @@ import { NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
 
-import AddBlockModal from "@Components/AddBlockModal";
-import ChartContainer from "@Components/dashboardLayout/ChartContainer";
+import AddBlockModal from "@Components/modals/AddBlockModal";
+import ChartContainer from "@Components/charts/ChartContainer";
 import GridLayout from "@Components/dashboardLayout/GridLayout";
-
-import qsLogo from "@Assets/qs-logo.jpg";
+import Header from "@Components/header";
 
 import { QsGraph } from "@Interfaces/graph/QSGraphs";
+import { gridComponent } from "@Interfaces/gridComponent";
 
 const Dashboard: NextPage = () => {
-  const [BLOCKS, ADD_NEW_BLOCK] = useState(Array<object>);
+  const [BLOCKS, ADD_NEW_BLOCK] = useState(Array<QsGraph>);
   const [MODAL_OPEN, SHOW_MODAL] = useState(false);
-  const handleCallback = (data: Array<QsGraph>) => {
-    ADD_NEW_BLOCK((blocks) => [
-      ...blocks,
-      { component: <ChartContainer QsGraph={data} /> },
-    ]);
+  const handleCallback = (data: QsGraph) => {
+    ADD_NEW_BLOCK((blocks) => [...blocks, data]);
   };
   return (
     <>
@@ -27,11 +24,8 @@ const Dashboard: NextPage = () => {
         show={MODAL_OPEN}
       />
       <div>
+        <Header />
         <span className="dashboard-header">
-          <div>
-            <Image src={qsLogo} alt="test" />
-          </div>
-          <h1>Dashboard</h1>
           <h1 onClick={() => SHOW_MODAL(true)}>+</h1>
         </span>
         <GridLayout layout={BLOCKS} />

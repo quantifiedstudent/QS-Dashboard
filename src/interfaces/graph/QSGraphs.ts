@@ -1,4 +1,6 @@
 import { GraphType } from "@Interfaces/graph/Graph";
+import React from "react";
+import TotalTimeSpentAtSchool from "@Components/charts/TotalTimeGraph";
 
 /**
  * <summary>
@@ -9,14 +11,34 @@ import { GraphType } from "@Interfaces/graph/Graph";
  * @param: Type -> the type the graph will have e.g line, bar, pie etc.
  * @param: endpoint -> the api endpoint the data for the graph comes from
  */
-export class QsGraph {
-  static readonly DEFAULT = new QsGraph("loading", GraphType.LINE, "");
-  static readonly GRADE = new QsGraph("Grade", GraphType.LINE, "allGrades");
-  static readonly WEATHER = new QsGraph("Weather", GraphType.BAR, "weather");
 
-  private constructor(
-    public readonly label: string,
-    public readonly type: GraphType,
-    public readonly endpoint: string
-  ) {}
+interface QsGraphShape {
+  readonly title: string;
+  readonly graph: (props: { graph: QsGraph }) => JSX.Element;
+  readonly endpoint: string;
+  readonly resizable: boolean;
+  readonly height: number;
+  readonly width: number;
+}
+
+const baseTotalGraph = {
+  graph: TotalTimeSpentAtSchool,
+  resizable: false,
+  height: 1,
+  width: 1,
+};
+
+export class QsGraph {
+  static readonly TIMESPENTATSCHOOL = new QsGraph({
+    title: "Time spent at school",
+    endpoint: "TotalTimeAtSchool",
+    ...baseTotalGraph,
+  });
+  static readonly SLEEPINGTIME = new QsGraph({
+    title: "Total sleeping time",
+    endpoint: "TotalSleepingTime",
+    ...baseTotalGraph,
+  });
+
+  private constructor(public metadata: QsGraphShape) {}
 }

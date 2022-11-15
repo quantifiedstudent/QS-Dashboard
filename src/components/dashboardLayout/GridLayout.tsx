@@ -3,10 +3,12 @@ import { WidthProvider, Responsive } from "react-grid-layout";
 import "/node_modules/react-grid-layout/css/styles.css";
 import "/node_modules/react-resizable/css/styles.css";
 
-import styles from "@Styles/components/GraphBlock.module.scss";
+import styles from "@Styles/components/ChartComponent.module.scss";
+import ChartContainer from "@Components/charts/ChartContainer";
+import { QsGraph } from "@Interfaces/graph/QSGraphs";
 
 interface GridLayoutProps {
-  layout: Array<object>;
+  layout: Array<QsGraph>;
 }
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
@@ -15,19 +17,26 @@ const GridLayout = (props: GridLayoutProps) => {
   return (
     <ResponsiveReactGridLayout
       className="layout"
-      cols={{ lg: 5, md: 5, sm: 4, xs: 2, xxs: 1 }}
-      rowHeight={120}
-      width={1000}
+      cols={{ lg: 3, md: 3, sm: 3, xs: 2, xxs: 1 }}
+      rowHeight={115}
       isBounded
     >
-      {props.layout.map((item: any, index: number) => {
+      {props.layout.map((item: QsGraph, index: number) => {
         return (
           <span
             key={index}
             className={styles.graph_block}
-            data-grid={{ x: 0, y: 0, w: 1, h: 2, minW: 1, minH: 2 }}
+            data-grid={{
+              x: 0,
+              y: 0,
+              w: item.metadata.width,
+              h: item.metadata.height,
+              minW: 1,
+              minH: 1,
+              isResizable: item.metadata.resizable,
+            }}
           >
-            {item.component}
+            {<ChartContainer QsGraph={item} />}
           </span>
         );
       })}

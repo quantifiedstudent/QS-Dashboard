@@ -1,4 +1,18 @@
 {
+  "TotalTimeAtSchool": {
+    "total": 38.2,
+    "comparison": [
+      { "value": 14.3, "comparedTo": "last week" },
+      { "value": -5, "comparedTo": "Jane" }
+    ]
+  },
+  "TotalSleepingTime": {
+    "total": 6.9,
+    "comparison": [
+      { "value": 6, "comparedTo": "yesterday" },
+      { "value": -20, "comparedTo": "Jane" }
+    ]
+  },
   "allGrades": [
     {
       "y": 1,
