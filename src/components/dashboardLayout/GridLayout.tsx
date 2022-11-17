@@ -4,7 +4,7 @@ import "/node_modules/react-grid-layout/css/styles.css";
 import "/node_modules/react-resizable/css/styles.css";
 
 import styles from "@Styles/components/ChartComponent.module.scss";
-import ChartContainer from "@Components/charts/ChartContainer";
+import ChartContainer from "@Components/graphs/ChartContainer";
 import { QsGraph } from "@Interfaces/graph/QSGraphs";
 
 interface GridLayoutProps {
@@ -22,6 +22,7 @@ const GridLayout = (props: GridLayoutProps) => {
       isBounded
     >
       {props.layout.map((item: QsGraph, index: number) => {
+        console.log(item);
         return (
           <span
             key={index}
@@ -29,11 +30,11 @@ const GridLayout = (props: GridLayoutProps) => {
             data-grid={{
               x: 0,
               y: 0,
-              w: item.metadata.width,
-              h: item.metadata.height,
-              minW: 1,
-              minH: 1,
-              isResizable: item.metadata.resizable,
+              w: item.metadata.options.width,
+              h: item.metadata.options.height,
+              minW: item.metadata.options.width,
+              minH: item.metadata.options.height,
+              isResizable: item.metadata.options.resizable,
             }}
           >
             {<ChartContainer QsGraph={item} />}

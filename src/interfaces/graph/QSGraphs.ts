@@ -1,44 +1,50 @@
-import { GraphType } from "@Interfaces/graph/Graph";
-import React from "react";
-import TotalTimeSpentAtSchool from "@Components/charts/TotalTimeGraph";
+import QsTotalGraph from "@Components/graphs/qsGraphs/QsTotalGraph";
+import QsLineGraph from "@Components/graphs/qsGraphs/QsLineGraph";
 
-/**
- * <summary>
- *  This class defines every graph you can choose on the dashboard
- * </summary>
- *
- * @param: Label -> the label line will have
- * @param: Type -> the type the graph will have e.g line, bar, pie etc.
- * @param: endpoint -> the api endpoint the data for the graph comes from
- */
-
-interface QsGraphShape {
+interface BaseQsGraphShape {
   readonly title: string;
-  readonly graph: (props: { graph: QsGraph }) => JSX.Element;
-  readonly endpoint: string;
+  readonly content: GraphContent;
+  readonly options: QsOptions;
+}
+
+interface QsOptions {
   readonly resizable: boolean;
   readonly height: number;
   readonly width: number;
 }
 
-const baseTotalGraph = {
-  graph: TotalTimeSpentAtSchool,
+interface GraphContent {
+  endpoint: Array<string>;
+  graph: (props: { graph: QsGraph }) => JSX.Element;
+}
+
+const TotalGraphOptions = {
   resizable: false,
   height: 1,
   width: 1,
 };
+const DefaultGraphOptions = {
+  resizable: true,
+  height: 2,
+  width: 1,
+};
 
 export class QsGraph {
-  static readonly TIMESPENTATSCHOOL = new QsGraph({
+  static readonly TimeSpentAtSchool = new QsGraph({
     title: "Time spent at school",
-    endpoint: "TotalTimeAtSchool",
-    ...baseTotalGraph,
+    content: { endpoint: ["TotalTimeAtSchool"], graph: QsTotalGraph },
+    options: TotalGraphOptions,
   });
-  static readonly SLEEPINGTIME = new QsGraph({
+  static readonly SleepingTime = new QsGraph({
     title: "Total sleeping time",
-    endpoint: "TotalSleepingTime",
-    ...baseTotalGraph,
+    content: { endpoint: ["TotalSleepingTime"], graph: QsTotalGraph },
+    options: TotalGraphOptions,
+  });
+  static readonly AvarageGrade = new QsGraph({
+    title: "Avarage grade",
+    content: { endpoint: ["AvarageGrade"], graph: QsLineGraph },
+    options: DefaultGraphOptions,
   });
 
-  private constructor(public metadata: QsGraphShape) {}
+  private constructor(public metadata: BaseQsGraphShape) {}
 }

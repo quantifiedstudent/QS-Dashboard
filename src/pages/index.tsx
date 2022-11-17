@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import AddBlockModal from "@Components/modals/AddBlockModal";
-import ChartContainer from "@Components/charts/ChartContainer";
+import ChartContainer from "@Components/graphs/ChartContainer";
 import GridLayout from "@Components/dashboardLayout/GridLayout";
 import Header from "@Components/header";
 

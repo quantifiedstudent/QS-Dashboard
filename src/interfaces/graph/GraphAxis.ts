@@ -9,7 +9,6 @@ export interface DataPoint {
 }
 
 export interface GraphObject {
-  graph: QsGraph;
   labels: Array<XAxis>;
   data: Array<YAxis>;
 }

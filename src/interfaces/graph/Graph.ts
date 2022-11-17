@@ -6,6 +6,7 @@ export enum GraphType {
   DOUGHNUT = "doughnut",
   PIE = "pie",
   LINE = "line",
+  TOTAL = "total",
 }
 
 interface BaseDataSetShape {
@@ -34,9 +35,9 @@ export class DataSet implements DataSetShape {
     this.pointBackgroundColor =
       options.pointBackgroundColor || "rgb(255, 255, 255)";
     this.backgroundColor = options.backgroundColor;
-    this.borderWidth = options.borderWidth || 3;
+    this.borderWidth = options.borderWidth || 1.5;
     this.lineTension = options.lineTension || 0.3;
-    this.pointRadius = options.pointRadius || 4;
+    this.pointRadius = options.pointRadius || 2;
   }
   type: GraphType;
   label: string;

@@ -4,14 +4,16 @@ import QS_API from "@Services/api/WebApi";
 import styles from "@Styles/components/graphs/TotalTimeSpentAtSchool.module.scss";
 import { useEffect, useState } from "react";
 
-const TotalTimeSpentAtSchool = (props: { graph: QsGraph }): JSX.Element => {
+const QsTotalGraph = (props: { graph: QsGraph }): JSX.Element => {
   const [graphData, setGraphData] = useState<TotalGraphShape>(
     new TotalGraph({})
   );
 
   useEffect(() => {
     const fetchGraphData = async () => {
-      const { data } = await QS_API.get(props.graph.metadata.endpoint);
+      const { data } = await QS_API.get(
+        props.graph.metadata.content.endpoint[0]
+      );
 
       setGraphData(data);
     };
@@ -37,4 +39,4 @@ const TotalTimeSpentAtSchool = (props: { graph: QsGraph }): JSX.Element => {
   );
 };
 
-export default TotalTimeSpentAtSchool;
+export default QsTotalGraph;

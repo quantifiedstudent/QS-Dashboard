@@ -16,11 +16,14 @@ const AddGraphToDashbaordModal = (props: AddGraphToDashbaordModalProps) => {
   return (
     <div className={COMBINE_CLASS(styles.modal, SHOW_HIDE_CLASS_NAME)}>
       <section className={styles.modal_main}>
-        <button onClick={() => props.graphToAdd(QsGraph.TIMESPENTATSCHOOL)}>
+        <button onClick={() => props.graphToAdd(QsGraph.TimeSpentAtSchool)}>
           Total time at school
         </button>
-        <button onClick={() => props.graphToAdd(QsGraph.SLEEPINGTIME)}>
+        <button onClick={() => props.graphToAdd(QsGraph.SleepingTime)}>
           Sleeping time
+        </button>
+        <button onClick={() => props.graphToAdd(QsGraph.AvarageGrade)}>
+          Avarage grade
         </button>
         <button type="button" onClick={props.handleClose}>
           Close

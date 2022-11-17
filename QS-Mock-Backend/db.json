@@ -13,7 +13,7 @@
       { "value": -20, "comparedTo": "Jane" }
     ]
   },
-  "allGrades": [
+  "AvarageGrade": [
     {
       "y": 1,
       "x": "05-10-2022"
