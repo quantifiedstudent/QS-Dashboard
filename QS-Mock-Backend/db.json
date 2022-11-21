@@ -1,10 +1,6 @@
 {
   "TotalTimeAtSchool": {
-    "total": 38.2,
-    "comparison": [
-      { "value": 14.3, "comparedTo": "last week" },
-      { "value": -5, "comparedTo": "Jane" }
-    ]
+    "total": 38.5
   },
   "TotalSleepingTime": {
     "total": 6.9,
@@ -55,7 +51,7 @@
       "x": "05-10-2022"
     }
   ],
-  "weather": [
+  "HoursSlept": [
     {
       "y": 5,
       "x": "05-10-2022"
@@ -69,7 +65,7 @@
       "x": "05-10-2022"
     },
     {
-      "y": 3,
+      "y": 7,
       "x": "05-10-2022"
     },
     {

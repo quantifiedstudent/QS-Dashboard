@@ -1,4 +1,4 @@
-import { DataPoint, XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
+import { DataPoint, XAxis, YAxis } from "@Services/graph/GraphAxis";
 import QS_API from "@Services/api/WebApi";
 
 export class ApiRequest<T extends DataPoint> {

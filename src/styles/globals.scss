@@ -11,8 +11,8 @@ h1 {
   color: $qs-gray-1;
 }
 p {
-  color: $qs-gray-2;
-  font-size: $paragraph-size;
+  color: $qs-gray-2 !important;
+  font-size: $paragraph-size !important;
 }
 
 h1,

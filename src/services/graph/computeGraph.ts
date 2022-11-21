@@ -1,11 +1,11 @@
 import Chart, { ChartConfiguration } from "chart.js/auto";
 
-import { DataSet, GraphType } from "@Interfaces/graph/Graph";
-import { GraphObject, XAxis, YAxis } from "@Interfaces/graph/GraphAxis";
+import { DataSet } from "@Services/graph/DatasetDefinition";
+import { GraphObject, XAxis } from "@Services/graph/GraphAxis";
 import options from "@Services/graph/DefaultGraphConfig";
 
 class QsChart {
-  private _ctx: HTMLCanvasElement;
+  private _ctx: CanvasRenderingContext2D;
   private _charts: Array<GraphObject>;
   private _labels: Array<XAxis>;
   private _colors: Array<string>;
@@ -13,7 +13,7 @@ class QsChart {
   constructor(
     charts: Array<GraphObject>,
     labels: Array<XAxis>,
-    ctx: HTMLCanvasElement
+    ctx: CanvasRenderingContext2D
   ) {
     this._ctx = ctx;
     this._charts = charts;
@@ -45,8 +45,6 @@ class QsChart {
         value.backgroundColor = this._colors[i];
       });
     }
-
-    console.log(this._labels);
 
     const CONFIG: ChartConfiguration = {
       data: {
