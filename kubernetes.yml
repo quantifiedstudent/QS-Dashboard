@@ -7,7 +7,8 @@ metadata:
 spec:
   replicas: 3
   selector:
-    app: qsfront
+    matchLabels:
+      app: qsfront
   template:
     metadata:
       labels:
