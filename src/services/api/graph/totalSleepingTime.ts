@@ -1,5 +1,11 @@
 import QS_API from "../WebApi";
 
 export async function fetchTotalSleepingTime() {
-  return await QS_API.get("TotalSleepingTime");
+  const mockValue = {
+    total: 6.9,
+  };
+
+  return { data: mockValue };
+
+  // return await QS_API.get("TotalSleepingTime");
 }
