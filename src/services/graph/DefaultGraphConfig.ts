@@ -1,4 +1,6 @@
-const OPTIONS = {
+import { ChartOptions } from "chart.js";
+
+const OPTIONS: ChartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
@@ -9,7 +11,7 @@ const OPTIONS = {
       beginAtZero: true,
     },
     x: {
-      display: false,
+      display: true,
     },
   },
 };

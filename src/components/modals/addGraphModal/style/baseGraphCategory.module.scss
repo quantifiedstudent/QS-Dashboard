@@ -1,0 +1,29 @@
+.inner_graph_card_container {
+  display: flex;
+}
+
+.graph_card_container {
+  height: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar {
+    height: 0.5em;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(116, 116, 116);
+  }
+}
