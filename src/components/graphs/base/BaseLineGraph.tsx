@@ -1,4 +1,4 @@
-import QsChart from "@Services/graph/ComputeGraph";
+import QsChart from "@Services/graph/computeGraph";
 import { GraphObject } from "@Services/graph/GraphAxis";
 import { useRef, useEffect } from "react";
 
