@@ -1,4 +1,8 @@
 {
+  "OngoingCourses": {
+    "notSubmitted": 10,
+    "submitted": 14
+  },
   "TotalTimeAtSchool": {
     "total": 38.5
   },

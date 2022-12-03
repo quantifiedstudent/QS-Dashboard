@@ -1,0 +1,37 @@
+.scale {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.submitted {
+  background-color: red;
+}
+
+.not_submitted {
+  background-color: green;
+  justify-content: flex-end;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+
+.inner_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner_submitted {
+  align-items: flex-start;
+}
+
+.inner_not_submitted {
+  align-items: flex-end;
+}
+
+.label {
+  font-size: 0.8rem;
+}

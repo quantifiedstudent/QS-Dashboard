@@ -12,6 +12,11 @@ const CanvasGraphs = (props: GraphCategoryProps) => {
         >
           Avarage grade
         </GraphCard>
+        <GraphCard
+          handler={() => props.graphHandler(QsGraphDefinition.OngoingCourse)}
+        >
+          Ongoing course
+        </GraphCard>
       </>
     </BaseGraphCategory>
   );

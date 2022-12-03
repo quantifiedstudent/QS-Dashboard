@@ -1,3 +1,3 @@
-const COMBINE_CLASS = (...classNames: any[]) => classNames.join(" ");
+const classNames = (...classNames: any[]) => classNames.join(" ");
 
-export default COMBINE_CLASS;
+export default classNames;

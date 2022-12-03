@@ -10,12 +10,12 @@ const ChartContainer = (props: ChartContainer) => {
   const GraphElement = QsGraph[props.QsGraph.graph];
   return (
     <>
-      <div className={styles.ChartHeader}>
-        <span className={styles.ChartTitle}>
+      <div className={styles.chart_header}>
+        <span className={styles.chart_title}>
           <p>{props.QsGraph.title}</p>
         </span>
       </div>
-      <div className={styles.ChartContainer}>
+      <div className={styles.chart_container}>
         <GraphElement />
       </div>
     </>
