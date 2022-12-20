@@ -34,7 +34,8 @@ p {
 }
 
 .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
-    @apply bottom-2 !important right-2 !important;
+    bottom: 0.5em !important;
+    right: 0.5em !important;
 }
 
 .react-grid-item.react-grid-placeholder {
