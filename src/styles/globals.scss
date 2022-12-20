@@ -26,17 +26,15 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+    @apply m-0;
 }
 
 .dashboard-header {
-    display: flex;
-    justify-content: space-between;
+    @apply flex justify-between;
 }
 
 .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
-    bottom: 0.5em !important;
-    right: 0.5em !important;
+    @apply bottom-2 !important right-2 !important;
 }
 
 .react-grid-item.react-grid-placeholder {

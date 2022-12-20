@@ -1,12 +1,11 @@
 .chart_container {
-  height: 85%;
+    @apply h-4/5;
 }
 
 .chart_header {
-  margin-bottom: 10px;
+    @apply mb-2.5;
 }
 
 .chart_title {
-  font-size: 12px;
-  font-weight: bold;
+    @apply text-xs font-bold;
 }
