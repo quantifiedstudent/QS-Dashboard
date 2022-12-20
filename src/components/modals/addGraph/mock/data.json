@@ -1,0 +1,22 @@
+{
+  "categories": {
+    "canvas": {
+      "graphs": {
+        "bar": ["grades", "test"],
+        "bar-horizontal": ["grades"],
+        "circle":["grades", "second test"]
+      }
+    },
+    "attendance": {
+      "graphs": {
+        "bar": ["attendance"],
+        "bar-horizontal": ["attendance"],
+        "circle": ["attendance", "third test"]
+      }
+    },
+    "health": {
+      "graphs": {
+      }
+    }
+  }
+}

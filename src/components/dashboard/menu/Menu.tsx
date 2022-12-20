@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import Image from "next/image";
 import { Text } from "@nextui-org/react";
 
 import BaseButton from "@Components/misc/button/baseButton";
-import GraphEditor from "@Components/modals/addGraphModal/AddGraphModal";
+import AddGraph from "@Components/modals/addGraph/AddGraph";
 
 import goalsIcon from "@Assets/icons/goals_icon.svg";
 import graphEditorIcon from "@Assets/icons/graph_editor_icon.svg";
@@ -12,15 +10,20 @@ import dataSharingIcon from "@Assets/icons/data_sharing.svg";
 import notificationsIcon from "@Assets/icons/notifications.svg";
 
 import styles from "./style.module.scss";
+import {useState} from "react";
 
 const Menu = () => {
-  const [GraphModal, ShowGraphModal] = useState(false);
+  const [showAddGraphModal, setShowAddGraphModal] = useState(false);
+
+  const addGraphModalHandler = (value: boolean) => {
+    setShowAddGraphModal(value);
+  }
 
   return (
     <>
-      <GraphEditor
-        handleClose={() => ShowGraphModal(false)}
-        show={GraphModal}
+      <AddGraph
+          setClose={() => addGraphModalHandler(false)}
+          show={showAddGraphModal}
       />
       <div className={styles.menu_container}>
         <div>
@@ -28,7 +31,7 @@ const Menu = () => {
           <p>you have 3 new notifications</p>
         </div>
         <div className={styles.button_container}>
-          <div>
+          <div className="z-0">
             <BaseButton>
               <>
                 <Image
@@ -41,8 +44,8 @@ const Menu = () => {
               </>
             </BaseButton>
           </div>
-          <div>
-            <BaseButton onPress={() => ShowGraphModal(true)}>
+          <div className="z-0">
+            <BaseButton onPress={() => addGraphModalHandler(true)}>
               <>
                 <Image
                   src={graphEditorIcon}
@@ -50,11 +53,11 @@ const Menu = () => {
                   height={27.14}
                   alt="Graph editor icon"
                 />
-                <Text>Graph editor</Text>
+                <Text>Add graph</Text>
               </>
             </BaseButton>
           </div>
-          <div>
+          <div className="z-0">
             <BaseButton>
               <>
                 <Image
@@ -67,7 +70,7 @@ const Menu = () => {
               </>
             </BaseButton>
           </div>
-          <div>
+          <div className="z-0">
             <BaseButton>
               <>
                 <Image
@@ -77,6 +80,19 @@ const Menu = () => {
                   alt="notifications icon"
                 />
                 <Text>notifications</Text>
+              </>
+            </BaseButton>
+          </div>
+          <div className="z-0">
+            <BaseButton>
+              <>
+                <Image
+                    src={notificationsIcon}
+                    width={27.14}
+                    height={27.14}
+                    alt="notifications icon"
+                />
+                <Text>test</Text>
               </>
             </BaseButton>
           </div>
