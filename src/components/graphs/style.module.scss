@@ -1,8 +1,11 @@
-.ChartContainer {
-  height: 85%;
+.chart_container {
+    @apply h-4/5;
 }
 
-.ChartTitle {
-  font-size: 12px;
-  font-weight: bold;
+.chart_header {
+    @apply mb-2.5;
+}
+
+.chart_title {
+    @apply text-xs font-bold;
 }

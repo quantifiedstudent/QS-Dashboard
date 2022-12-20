@@ -1,6 +1,7 @@
 import QsTotalTimeAtSchool from "@Components/graphs/TotalTimeSpentAtSchool/QsTotalTimeSpentAtSchool";
 import AvarageGradeGraph from "@Components/graphs/AvarageGrade/QsAvarageGradeGraph";
 import QsTotalSleepingTime from "@Components/graphs/TotalSleepingTime/QsTotalSleepingTimeGraph";
+import QsOngoingCourse from "@Components/graphs/OngoingCourses/QsOngoingCoursesGraph";
 
 export interface BaseQsGraphShape {
   readonly title: string;
@@ -29,6 +30,7 @@ enum AvailableGraphs {
   TotalTimeSpentAtSchool = "TotalTimeSpentAtSchool",
   AvarageGrade = "AvarageGrade",
   TotalSleepingTime = "TotalSleepingTime",
+  OngoingCourse = "OngoingCourse",
 }
 
 type QsGraphDefinition = {
@@ -43,6 +45,7 @@ export const QsGraph: QsGraphElements = {
   TotalTimeSpentAtSchool: QsTotalTimeAtSchool,
   AvarageGrade: AvarageGradeGraph,
   TotalSleepingTime: QsTotalSleepingTime,
+  OngoingCourse: QsOngoingCourse,
 };
 
 export const QsGraphDefinition: QsGraphDefinition = {
@@ -60,5 +63,10 @@ export const QsGraphDefinition: QsGraphDefinition = {
     title: "Avarage grade",
     graph: AvailableGraphs.AvarageGrade,
     options: DefaultGraphOptions,
+  },
+  OngoingCourse: {
+    title: "Ongoing courses",
+    graph: AvailableGraphs.OngoingCourse,
+    options: TotalGraphOptions,
   },
 };

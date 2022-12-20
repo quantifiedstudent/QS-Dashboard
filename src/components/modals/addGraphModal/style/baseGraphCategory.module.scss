@@ -1,29 +1,28 @@
 .inner_graph_card_container {
-  display: flex;
+    @apply flex;
 }
 
 .graph_card_container {
-  height: 100%;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar {
-    height: 0.5em;
-  }
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
+    @apply h-full overflow-x-auto;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+        @apply w-2.5;
+    }
+    &::-webkit-scrollbar {
+        @apply w-2;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        @apply bg-white;
+    }
 
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: gray;
-  }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        @apply bg-slate-400;
+    }
 
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: rgb(116, 116, 116);
-  }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        @apply bg-slate-500;
+    }
 }

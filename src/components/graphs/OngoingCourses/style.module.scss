@@ -1,0 +1,30 @@
+.scale {
+    @apply h-8 w-full flex items-center;
+}
+.submitted {
+    @apply bg-red-600;
+}
+
+.not_submitted {
+    @apply bg-green-600 justify-end;
+}
+
+.container {
+    @apply flex w-full;
+}
+
+.inner_container {
+    @apply flex flex-col;
+}
+
+.inner_submitted {
+    @apply justify-start;
+}
+
+.inner_not_submitted {
+    @apply justify-end;
+}
+
+.label {
+    @apply text-sm;
+}

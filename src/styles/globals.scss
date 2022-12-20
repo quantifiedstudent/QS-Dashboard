@@ -1,18 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 body {
-  font-family: "Lato", sans-serif;
-  color: $qs-gray-1;
-  margin: 20px 30px;
+    font-family: "Lato", sans-serif;
+    color: $qs-gray-1;
+    margin: 20px 30px;
 }
 
 h1 {
-  color: $qs-gray-1;
+    color: $qs-gray-1;
 }
 p {
-  color: $qs-gray-2 !important;
-  font-size: $paragraph-size !important;
+    color: $qs-gray-2 !important;
+    font-size: $paragraph-size !important;
 }
 
 h1,
@@ -22,19 +26,18 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+    @apply m-0;
 }
 
 .dashboard-header {
-  display: flex;
-  justify-content: space-between;
+    @apply flex justify-between;
 }
 
 .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
-  bottom: 0.5em !important;
-  right: 0.5em !important;
+    bottom: 0.5em !important;
+    right: 0.5em !important;
 }
 
 .react-grid-item.react-grid-placeholder {
-  background: $qs-blue-1 !important;
+    background: $qs-blue-1 !important;
 }

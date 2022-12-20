@@ -1,16 +1,14 @@
 .add_source_section {
-  display: flex;
-  position: absolute;
-  bottom: 0;
+    @apply flex absolute bottom-0;
 }
 
 .add_source_content {
-  cursor: pointer;
-  &:hover {
-    p {
-      &:nth-child(2) {
-        color: #6aabd7;
-      }
+    @apply cursor-pointer;
+    &:hover {
+        p {
+            &:nth-child(2) {
+                @apply text-cyan-300;
+            }
+        }
     }
-  }
 }
