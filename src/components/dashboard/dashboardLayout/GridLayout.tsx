@@ -13,8 +13,8 @@ import ChartContainer from "@Components/graphs/QsGraphContainer";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 const GridLayout = () => {
-    const graphs = useSelector((state: RootState) => state.dashboard.graphs);
-
+    // const graphs = useSelector((state: RootState) => state.dashboard.graphs);
+    const graphs: any[] = [];
     return (
         <ResponsiveReactGridLayout
             className="layout"

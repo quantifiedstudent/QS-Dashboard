@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Text } from "@nextui-org/react";
 
 import BaseButton from "@Components/misc/button/baseButton";
-import GraphEditor from "@Components/modals/addGraphModal/AddGraphModal";
+import GraphEditor from "@Components/modals/addGraph/AddGraph";
 
 import goalsIcon from "@Assets/icons/goals_icon.svg";
 import graphEditorIcon from "@Assets/icons/graph_editor_icon.svg";
@@ -12,12 +12,16 @@ import dataSharingIcon from "@Assets/icons/data_sharing.svg";
 import notificationsIcon from "@Assets/icons/notifications.svg";
 
 const Menu = () => {
-    const [GraphModal, ShowGraphModal] = useState(false);
+  const [showAddGraphModal, setShowAddGraphModal] = useState(false);
 
+  const addGraphModalHandler = (value: boolean) => {
+    setShowAddGraphModal(value);
+  }
+    const [GraphModal, ShowGraphModal] = useState(false);
     return (
         <>
             <GraphEditor
-                handleClose={() => ShowGraphModal(false)}
+                setClose={() => setShowAddGraphModal(false)}
                 show={GraphModal}
             />
             <div className="box-border flex items-center justify-between p-4">
