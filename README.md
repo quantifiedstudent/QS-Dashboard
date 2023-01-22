@@ -4,11 +4,13 @@ The quantified student dashboard is the place where all the students' data is be
 
 ## Table of contents
 [Features](#features) 
+   [Dashboard customization](#dashboard-customization)
 
 ## Dashboard features
-<a name="features"/>
+<a name="features" />
 
 ### Dashboard customization
+<a name="dashboard-customization" />
 
 We realise that not every student finds the same information valuable. for example one student finds its health data from great importance and thinks this influeces his preformance greatly, and the other takes great value from the actual canvas performance and his attendance. To accumulate for this difference in interest a student can compose his dashboard the way he wants it by adding different graphs and datapoints to the dashboard, resizing them to a preferenced size and drag them around.
 
