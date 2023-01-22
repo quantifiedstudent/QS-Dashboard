@@ -138,6 +138,15 @@ For the example we will configure the canvas datasource which prompts us to prov
 ### Graph generation
 <a name="technical-graph-generation" />
 
+The graph rendering process all starts with the QSGraphDefenition. This is an object which defines the basic rendering of any graph.
+``
+    interface BaseQsGraphShape {
+        readonly title: string;
+        readonly graph: AvailableGraphs;
+        readonly options: QsOptions;
+    }
+``
+
 ### Dashboard layout
 <a name="technical-dashboard-layout" />
 
