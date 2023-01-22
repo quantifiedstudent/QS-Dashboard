@@ -138,14 +138,96 @@ For the example we will configure the canvas datasource which prompts us to prov
 ### Graph generation
 <a name="technical-graph-generation" />
 
+#### Graph defenition
+
 The graph rendering process all starts with the QSGraphDefenition. This is an object which defines the basic rendering of any graph.
+<a name="BaseQsGraphShape" />
 ```
-    interface BaseQsGraphShape {
-        readonly title: string;
-        readonly graph: AvailableGraphs;
-        readonly options: QsOptions;
-    }
+interface BaseQsGraphShape {
+  readonly title: string;
+  readonly graph: AvailableGraphs;
+  readonly options: QsOptions;
+}
 ```
+in this structure the title element defines the title to display in the graph tile that is being rendered on the dashboard. The graph field represents the JSX graph element that should be rendered within the dashboard tile and which is responsible for actually displaying the data and the options field is another object which defines some options for the dashboard tile the graph is rendered in.
+```
+interface QsOptions {
+  readonly resizable: boolean;
+  readonly height: number;
+  readonly width: number;
+}
+```
+the code for these interfaces and some more is stored [here](https://github.com/quantifiedstudent/Dashboard-v2/blob/backup/src/services/graph/QSGraphs.ts)
+
+#### graph rendering
+When a graph is selected it will be added to an array of BaseGraphShapes referenced [here](#BaseQsGraphShape)
+all the items in this array will then be added to the the dashboard. more on that [here](#technical-dashboard-layout)
+
+when the tile is ready to be rendered a ChartContainer method finds the right JSX element and renders it within the tile
+```
+type ChartContainer = {
+  QsGraph: BaseQsGraphShape;
+};
+
+const ChartContainer = (props: ChartContainer) => {
+  const GraphElement = QsGraph[props.QsGraph.graph]; //the string representation is used to index the graphs object.
+  return (
+    <>
+      <div className={styles.chart_header}>
+        <span className={styles.chart_title}>
+          <p>{props.QsGraph.title}</p>
+        </span>
+      </div>
+      <div className={styles.chart_container}>
+        <GraphElement /> //the JSX element that resulted from this search is being rendered.
+      </div>
+    </>
+  );
+};
+```
+*method can be found [here](https://github.com/quantifiedstudent/Dashboard-v2/blob/backup/src/components/graphs/QsGraphContainer.tsx)
+
+The graph that is being renderd knows where it has to find its data and starts gathering it and when it is finished it will render the actual data.
+Some data points are ready at this point and only have to place the gathered data in an element. others, for example line graphs have to take some additional stepts in order to render the graph.
+
+So lets take the line graph as an example. a line graph requires two things
+1. labels, which represent the x axis
+2. data, which is ploted between the x and y axis
+
+So the graph element gathers this information and renders a BaseLineGraph.
+```
+interface Props {
+  chartData: GraphObject[];
+}
+
+const BaseLineGraph = ({ chartData }: Props) => {
+  const canvas = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (!canvas.current) return;
+
+    const canvasContext = canvas.current.getContext("2d");
+
+    if (!canvasContext) return;
+
+    const chart = new QsChart(
+      chartData,
+      chartData[0].labels,
+      canvasContext
+    ).generateChart();
+
+    return () => {
+      chart.destroy();
+    };
+  }, [chartData]);
+
+  return <canvas ref={canvas}></canvas>;
+};
+```
+this method takes in the x and y axis and creates a new instance of a QsChart class. This QS chart class then renderes the actual chart in the canvas element that is provided to it. and finally the datapoint with graph shows up in the dashboard.
+
+*The base line graph method can be found [here](https://github.com/quantifiedstudent/Dashboard-v2/blob/backup/src/components/graphs/base/BaseLineGraph.tsx)
+
 
 ### Dashboard layout
 <a name="technical-dashboard-layout" />
