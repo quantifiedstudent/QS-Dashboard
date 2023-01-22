@@ -2,7 +2,11 @@
 
 The quantified student dashboard is the place where all the students' data is being gathered and showed to the user. He then can find for him important information and see trends, compare them against each other or just notice it.
 
+## Table of contents
+[Features](#features) 
+
 ## Dashboard features
+<a name="features"/>
 
 ### Dashboard customization
 
