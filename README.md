@@ -1,34 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quantified student dashboard V2
 
-## Getting Started
+The quantified student dashboard is the place where all the students' data is being gathered and showed to the user. He then can find for him important information and see trends, compare them against each other or just notice it.
 
-First, run the development server:
+## Dashboard features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Dashboard customization
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+We realise that not every student finds the same information valuable. for example one student finds its health data from great importance and thinks this influeces his preformance greatly, and the other takes great value from the actual canvas performance and his attendance. To accumulate for this difference in interest a student can compose his dashboard the way he wants it by adding different graphs and datapoints to the dashboard, resizing them to a preferenced size and drag them around.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+to provide the student with even more customisation options he will be able to set the timespan on a avarage type graph. This provide that ability to look back further and to spot bigger trends or to see the performance over the span of a longer period of time
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Datasource selection
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Another key feature is the ability to configure new data points. We provide different data sources that require some extra steps. For example to see attendance data the student has to install a mobile application. And to see health data this same application is needed. And if a student doesn't find some of this information not valuable or does not want to share with the system he can choose to not configure this data source. The flip side of this however is that whenever a student chooses to not configure a datasouces the data is not available to the system and therefore can't be added to the dashboard.
 
-## Learn More
+### Datasharing
 
-To learn more about Next.js, take a look at the following resources:
+Appart from drawing conclusions from your own data by looking at the trends and seeing the points, it may be valuable to be able to compare your data to another student. This has two effects. The first being that a student now can see the performance of one or multiple peers. This can be a measure for yourself and your own goals and performance. The other positive effect of this is the slight nudge form seeing your friends accomplishments. This can positively stimulate the student to crank up their own performance or for example only their attendance.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+However, some data in the dashbaord can be quite personal. for example sleep times or health data and you wouldn't want that data to be on every peers' dashboard. Thats why you can shoose which datasources you want to share with you peers and this datasources are also the datasources the peer then shares with you.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Goals
 
-## Deploy on Vercel
+Another thing the dashboard can do to simulate a student is the ability to set goals. A student can set a goals for a datapoint to reach a certain point or to be above a selected value for a certain amount of time. These goals then could be shared between peers to take the nudge effect a step further or to have a competition among peers.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Practical documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Graph selection
+
+A user can select which data they want to show on their dashboard. This data then is displayed in a corresponding graph which shows the neceserry information the best. For a user choose this graph and add it to their dashboard go to the "Graph editor" panel.
+
+1. Click on the graph editor button
+
+![1674391474711](image/README/1674391474711.png)
+
+This opens up the graph selection panel where you can choose which data you want to visualise on your dashboard.
+
+2. Choose a datasource from the available options
+
+![1674391623509](image/README/1674391623509.png)
+
+After you have selected the graph of choise, it is being added to you dashboard
+
+![1674391738965](image/README/1674391738965.png)
+
+### Dashboard formation
+
+Different students value different datasources over others. Thats the dashboard provides the ability to drag graph tiles around and mak some of them larger or smaller in size.
+
+**Drag tiles around**
+
+To drag a tile you hover with your mouse over the tile, press and hold the left mouse button and then you are able to drag it to the place you desire.
+
+> \*Note: Tiles can only be placed on places there is a neighbouring tile.
+
+**Resize tiles**
+
+1. When you want to resize a tile and make the content of it bigger, you find the little arrow on the bottom-right corner of the tile.
+
+![1674392447921](image/README/1674392447921.png)
+
+2. Press and hold it with the left mouse button
+3. drag it to the right or the bottom to make the tile bigger.
+
+> \*NOTE: You can only resize certain tiles with the arrow symbol in the bottom-right.
+
+> \*\*NOTE: The tile size increments or decrements with a fixed amount.
+
+### Timespan selection
+
+> \*NOTE: Not implemented yet
+
+### Datasource configuration
+
+Datapoints are children of different datasources. Therefore you have to have a datasource configured in your account in order to have access to the corresponding datapoint(s).
+
+You do this as followed:
+
+1. Navigate to the "Graph editor" panel by clicking the button
+
+![1674391474711](https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/thijm/OneDrive%20-%20Office%20365%20Fontys/Delta%20Excellence%20Program/Quantified%20student/Dashboard-v2/image/README/1674391474711.png)
+
+2. Click the "Can't seem to find the graph you want? Configure a new one" text at the left-bottom hand side of the screen
+
+![1674393172240](image/README/1674393172240.png)
+
+There you see a list of available datasources you can configure. In order to configure a datasource you must follow the steps that are prompted by the configuration.
+
+For the example we will configure the canvas datasource which prompts us to provide the canvas authorization token.
+
+![1674393350796](image/README/1674393350796.png)
+
+3. Fill in the required configuration options
+4. Close the panel and you see the newly available datasoures listed in the Graph editor panel.
+
+### Datasharing
+
+> NOTE: Not implemented yet
+
+### Setting goals
+
+> NOTE: Not implemented yet
+
+## Technical documentation
+
+### Graph generation
+
+### Dashboard layout
+
+### Datasource configuration
